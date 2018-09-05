@@ -62,6 +62,10 @@ No gráfico acima, cada ponto representa um boletim de ocorrência.  O modelo pr
 
 O modelo final (figura acima) obteve 99,7% de [*class-recall*](https://en.wikipedia.org/wiki/Precision_and_recall) e garantiu também que 90% dos casos dirigidos à equipe de tabuladores sejam de fato acidentes de trânsito.
 
+## Contato
+
+"Para mais informações, contate a equipe INFOSIGA Movimento Paulista de Segurança no trânsito em infosiga@sp.gov.br ou no (11) 2193-6821"
+
 ## Referências
 [1] [Tomas Mikolov,  Efficient Estimation of Word Representations in Vector Space, 2013](https://arxiv.org/abs/1301.3781)
 
@@ -69,4 +73,4 @@ O modelo final (figura acima) obteve 99,7% de [*class-recall*](https://en.wikipe
 
 [3] [Breiman, L. (2001) Random forests. Machine Learning, 45, 5-32. doi:10.1023/A:1010933404324](https://link.springer.com/article/10.1023%2FA%3A1010933404324)
 
-Para mais informações: 11 2193 6821
+
