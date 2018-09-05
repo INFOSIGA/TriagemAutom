@@ -69,3 +69,4 @@ O modelo final (figura acima) obteve 99,7% de [*class-recall*](https://en.wikipe
 
 [3] [Breiman, L. (2001) Random forests. Machine Learning, 45, 5-32. doi:10.1023/A:1010933404324](https://link.springer.com/article/10.1023%2FA%3A1010933404324)
 
+Para mais informações: 11 2193 6821
