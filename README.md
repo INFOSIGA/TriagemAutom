@@ -1,15 +1,18 @@
 ![Infosiga](./data/imgs/infosiga_logo.jpg)
 # Sistema de triagem automática de boletins de ocorrência do INFOSIGA
-A equipe do INFOSIGA desenvolveu um modelo de aprendizado de máquina para realizar o processo de triagem de boletins de ocorrência da Polícia Cívil automaticamente. Atualmente o modelo identifica corretamente os boletins de ocorrência de trânsito com vítima fatal em 99,7% dos casos, garantindo também que 90% dos boletins de ocorrência passados da triagem para a tabulação manual sejam de fato acidentes de trânsito com vítima fatal.
+A equipe do INFOSIGA, do Movimento Paulista de Segurança no Trânsito,  desenvolveu um modelo de aprendizado de máquina para realizar o processo de triagem automática de boletins de ocorrência (BO). O objetivo é conseguir classificar a natureza de um BO com base no texto de seu histórico. Atualmente o modelo identifica corretamente os boletins de ocorrência de trânsito com vítima fatal em 99,7% dos casos, garantindo também que 90% dos boletins de ocorrência passados da triagem para a tabulação manual sejam de fato acidentes de trânsito com vítima fatal.
+
+Para mais informações sobre o projeto, contate nossa equipe em infosiga@sp.gov.br ou no (11) 2193-6821
 
 ## Sistema INFOSIGA
-O [INFOSIGA SP](http://www.infosiga.sp.gov.br/) é um banco de dados que reúne mensalmente informações referentes a óbitos no trânsito no Estado de São Paulo. Os dados são obtidos a partir dos Boletins de Ocorrência do sistema Registro de Ocorrências (RDO) utilizado pela Polícia Civil na elaboração de Boletins de Ocorrência em todo o Estado de São Paulo.
+O [INFOSIGA SP](http://www.infosiga.sp.gov.br/) é um banco de dados público que divulga mensalmente informações referentes a óbitos no trânsito no Estado de São Paulo. Os dados são obtidos a partir dos Boletins de Ocorrência do Registro Digital de Ocorrências (RDO) utilizado pela Polícia Civil na elaboração de Boletins de Ocorrência em todo o Estado de São Paulo.
+A base é atualizada todo o dia 19 (ou próximo dia útil) e seus dados podem ser acessados através do site: http://www.segurancanotransito.sp.gov.br/Home/Relatorio
 
 ## Triagem automática
 O sistema de triagem recebe mais de 2 mil boletins de ocorrência da Polícia Civil todos os meses. 
-Esse conjunto de dados é encaminhado para a equipe de tabuladores do INFOSIGA que extraem as informações do boletim de ocorrência.
+Esse conjunto de dados é encaminhado para a equipe de tabuladores do INFOSIGA que extraem as informações adicionais e aumentam a precisão dos dados contidos no boletim de ocorrência.
 
-Desta massa de 2 mil boletins de ocorrência, apenas cerca de 24% são casos de acidentes de trânsito com vítima fatal. O Sistema de Triagem Automática permite reduzir a chance de um tabulador perder um boletim de ocorrência relacionado e ao mesmo tempo reduzir a carga de leitura dos trabalhadores em 64%.
+Desta massa de 2 mil boletins de ocorrência, apenas cerca de 24% são casos de acidentes de trânsito com vítima fatal. O Sistema de Triagem Automática permite reduzir a carga de leitura dos colaboradores em 64% e também diminui a chance de um tabulador perder um BO por acidente.
 
 ##  Modelo
 O modelo adotado é um [*ensemble*](https://en.wikipedia.org/wiki/Ensemble_learning) de uma Rede Neural com Convoluções e uma *Random Forest*, ambas treinadas com 73 mil boletins de ocorrência.
@@ -48,6 +51,8 @@ Foi ajustado um modelo [*Random Forest*](https://dl.acm.org/citation.cfm?id=5701
 As 1,000 *features* foram transformadas usando a transformação [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf), e posteriormente foram reduzidas num processo de [seleção de *features*](https://en.wikipedia.org/wiki/Feature_selection) para um total de 80 *features*. O processo de treinamento do modelo utilizou *pruning* com taxa de 10%.
 
 ### Ensemble
+Foi verificado que a combinação dos dois algorítimos resultava em maior robustez do modelo e um aumento significativo da precisão.
+
 Para combinar o *output* dos dois modelos, levou-se em consideração que os dois tipos possíveis de erro que o modelo pode cometer (falso-positivos e falso-negativos) possuem importâncias muito diferentes.
 
 No contexto do problema, um falso-negativo (perda de um boletim de ocorrência de trânsito) é muito pior que um falso-positivo (um boletim de ocorrência não relacionado ser passado para a equipe de tabuladores). 
@@ -65,6 +70,8 @@ O modelo final (figura acima) obteve 99,7% de [*class-recall*](https://en.wikipe
 ## Contato
 
 "Para mais informações, contate a equipe INFOSIGA Movimento Paulista de Segurança no trânsito em infosiga@sp.gov.br ou no (11) 2193-6821"
+
+Para membros da imprensa: (11) 2193-6895 e (11) 2193-6811 ou segurancanotransito@sp.gov.br
 
 ## Referências
 [1] [Tomas Mikolov,  Efficient Estimation of Word Representations in Vector Space, 2013](https://arxiv.org/abs/1301.3781)
