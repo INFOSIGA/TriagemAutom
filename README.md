@@ -56,7 +56,7 @@ Foi verificado que a combinação dos dois algorítimos resultava em maior robus
 Para combinar o *output* dos dois modelos, levou-se em consideração que os dois tipos possíveis de erro que o modelo pode cometer (falso-positivos e falso-negativos) possuem importâncias muito diferentes.
 
 No contexto do problema, um falso-negativo (perda de um boletim de ocorrência de trânsito) é muito pior que um falso-positivo (um boletim de ocorrência não relacionado ser passado para a equipe de tabuladores). 
-Pensando-se nisso, foi definida como taxa de [*recall*](https://pt.wikipedia.org/wiki/Recall) mínima aceitável para este problema o valor de 99,7%.
+Pensando-se nisso, foi definida como taxa de [*recall*](https://en.wikipedia.org/wiki/Precision_and_recall) mínima aceitável para este problema o valor de 99,7%.
 
 Para garantir a robustez do modelo, os erros cometidos pelo classificador foram verificados pela equipe do INFOSIGA e posteriormente julgados nos critérios de dificuldade e excepcionalidade. A partir dos resultados desta análise, um critério de decisão para o *ensemble* foi criado manualmente tal que os erros cometidos correspondam apenas a casos limítrofes.
 
